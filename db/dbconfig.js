@@ -1,11 +1,12 @@
 //module importing starting point
 const mysql = require('mysql2')
+const dotenv = require('dotenv').config()
 //module importing ending point
 
 const dbconnection = mysql.createConnection({
-    user:'evangadiadmin',
-    database:'evangadi_db',
-    password:'1234',
+    user:process.env.USER,
+    database:process.env.DATABASE,
+    password:process.env.PASSWORD,
     host:'localhost'
 })
 
