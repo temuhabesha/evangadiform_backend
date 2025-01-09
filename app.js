@@ -5,14 +5,18 @@ const questionRouters = require('./routs/questionRout')
 const dbconnection = require('./db/dbconfig')
 // authmiddle ware
 const authmiddleware = require('./middleware/authmiddleware')
+const cors = require('cors')
 //importing the modle ending point
 
 const app = express();
 const PORT = 5500
 
 //middle ware starting point
+//cors middle ware
+app.use(cors())
 //json middle ware to extract json data
 app.use(express.json())
+
 
 //user routes middleware
 app.use('/api/user',userRouter)
