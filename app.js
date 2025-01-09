@@ -1,7 +1,10 @@
 //importing the module starting point
 const express = require('express')
 const userRouter = require('./routs/userRout')
+const questionRouters = require('./routs/questionRout')
 const dbconnection = require('./db/dbconfig')
+// authmiddle ware
+const authmiddleware = require('./middleware/authmiddleware')
 //importing the modle ending point
 
 const app = express();
@@ -13,6 +16,8 @@ app.use(express.json())
 
 //user routes middleware
 app.use('/api/user',userRouter)
+//question routes middleware
+app.use('/api/questions',authmiddleware,questionRouters)
 //middleware ending point
 
 //app listning starting point
